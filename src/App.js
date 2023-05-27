@@ -23,15 +23,15 @@ function App() {
   const token = localStorage.getItem("token");
 
   return (
-//     <Router>
-//       {!token ? (
-//         <Routes>
-//           <Route path="/login" element={<Login />} />
-//           {<Route path="/user-profile" element={<UserProfile />} />}
-//           {!token &&<Route path="/*" element={<Navigate to="/login" />} />}
+    <Router>
+      {!token ? (
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          {<Route path="/user-profile" element={<UserProfile />} />}
+          {!token &&<Route path="/*" element={<Navigate to="/login" />} />}
           
-//         </Routes>
-//       ) : (
+        </Routes>
+      ) : (
         <div className="App">
           <Banner />
           <Header />
@@ -53,8 +53,8 @@ function App() {
             <Route path="/home" element={<Home />} />
           </Routes>
         </div>
-//       )}
-//     </Router>
+      )}
+    </Router>
   );
 }
 
