@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-image: url("D:\efootball23\client\src\assets\site-bg.jpg");
+  background-image: url("./assets/site-bg.jpg");
   height: 150vmin;
   color: #fff;
   background-repeat: no-repeat;
