@@ -1,0 +1,21 @@
+.room {
+  position: relative;
+  top: 160px; /* Adjust the value as needed based on the banner's height */
+  left: 0;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../../../public/whatapp.jpg");
+}
+
+.chats {
+  flex: 1;
+  padding: 0px;
+}
+
+.chat-messages {
+  max-height: 400px;
+  overflow-y: scroll;
+}

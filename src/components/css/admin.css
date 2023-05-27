@@ -1,0 +1,7 @@
+.admin{
+    position: relative;
+    top: 250px; /* Adjust the value as needed based on the banner's height */
+    left: 0;
+    width: 100%;
+    z-index: 997; 
+}

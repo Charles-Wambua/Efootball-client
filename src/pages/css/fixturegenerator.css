@@ -1,0 +1,53 @@
+/* FixtureGenerator.css */
+
+.fixtures {
+    margin-top: 30px;
+    background-color: blue;
+  }
+  
+  .generate-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .fixtures-heading {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .round {
+    margin-bottom: 20px;
+  }
+  
+  .match {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  @media (max-width: 600px) {
+    .fixtures {
+      margin-top: 20px;
+    }
+  
+    .generate-btn {
+      font-size: 14px;
+    }
+  
+    .fixtures-heading {
+      font-size: 18px;
+    }
+  
+    .round {
+      margin-bottom: 15px;
+    }
+  
+    .match {
+      font-size: 14px;
+    }
+  }
+  

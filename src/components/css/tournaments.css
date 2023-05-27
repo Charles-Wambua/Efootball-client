@@ -1,0 +1,69 @@
+.tournaments{
+    position: relative;
+    top: 250px; /* Adjust the value as needed based on the banner's height */
+    left: 0;
+    width: 100%;
+    z-index: 997; 
+  
+}
+.tournaments h3{
+    color: #e7299e;
+}
+.tournaments .links{
+    background-color: #e7299e;
+    color: #ffff;
+    text-decoration: none;
+    padding: 3%;
+    overflow-x: auto;
+    white-space: nowrap;
+    z-index: 997;
+}
+.links a{
+    text-decoration: none;
+    margin: 3%;
+    padding: 3%;
+    color: #ffff;
+}
+.disclaimer{
+    background-color: #def50d;
+    color: #050efd;
+    line-height: 2.0; 
+    align-items: baseline;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image img {
+    max-width: 100%;
+    height: auto;
+  }
+  .tournament-info{
+    text-align: left;
+    background-color: #d1e70d;
+  padding: 10px;
+  color: blue;
+  line-height: 2;
+  }
+  .tournament-info a{
+    color: #f50d47;
+  }
+  @media screen and (max-width: 768px) {
+    .tournaments {
+        margin-top: 1%;
+        padding: 1%;
+        justify-content: space-between;
+      }
+      .tournament-info{
+        padding: 2%;
+      }
+    .tournaments .links {
+      flex-wrap: nowrap; /* Prevent wrapping of links on smaller screens */
+    }
+  }
+  

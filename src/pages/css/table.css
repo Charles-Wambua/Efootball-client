@@ -1,0 +1,61 @@
+.epl-table {
+    position: relative;
+    top: 250px; 
+    left: 0;
+    width: 100%;
+    z-index: 997; 
+    
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .table-header {
+    background-color: #575b06;
+    font-weight: bold;
+    display: flex;
+  }
+  
+  .table-row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .column:first-child {
+    flex: 0.5;
+    text-align: center;
+  }
+  
+  .table-header .column:first-child {
+    flex: 0.5;
+  }
+  
+  .table-row:nth-child(even) {
+    background-color: #dc1399;
+  }
+  
+  .table-row:hover {
+    background-color: #1f0c0c;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .column:first-child {
+      display: none;
+    }
+  
+    .table-header .column:first-child {
+      display: none;
+    }
+  
+    .column {
+      flex: 2;
+      text-align: left;
+      padding: 5px;
+    }
+  }
+  

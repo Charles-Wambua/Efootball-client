@@ -1,6 +1,28 @@
 .App {
   text-align: center;
+  background-image: url("D:\efootball23\client\src\assets\site-bg.jpg");
+  height: 150vmin;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
+
+@media screen and (max-width: 768px) {
+  /* Styles for devices with a maximum width of 768px */
+  .App {
+    height: 100vh;
+    background-size: 100% 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Styles for devices with a maximum width of 480px */
+  .App {
+    height: 100vh;
+    background-size: 100% 100%;
+  }
+}
+
 
 .App-logo {
   height: 40vmin;

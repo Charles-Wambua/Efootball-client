@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: #1606c6;
+    color:  #e7299e;
+    text-align: left;
+    padding-left: 40px;
+    padding-bottom: 1px;
+    position: fixed;
+    top: 80px; /* Adjust the value as needed based on the banner's height */
+    left: 0;
+    width: 100%;
+    z-index: 998; /* Lower z-index to appear below the banner */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .header {
+      text-align: center;
+      padding: 5px;
+      font-size: 12px;
+      -webkit-text-size-adjust: 80%;
+      -ms-text-size-adjust: 100%;
+      text-size-adjust: 80%;
+      font-family: 'Caveat';font-size: 12px;
+    }
+  }
