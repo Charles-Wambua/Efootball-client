@@ -1,16 +1,29 @@
 .login {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: rgb(12, 41, 232);
   }
-  
+  .login .image{
+    max-width: 20%;
+  }
+  .sign-up{
+    justify-content: center;
+    line-height: 2;
+    font-size: large;
+    text-align: center;
+    font: bolder;
+    color: #ccc;
+    
+  }
   .login-form {
     max-width: 400px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: #2f6fdf;
   }
   .login-form h5{
     color: black;
@@ -47,4 +60,11 @@
     color: #f00;
     margin-bottom: 10px;
   }
-  
+  @media screen and (max-width: 768px) {
+    .login-form input {
+      padding-right: 5px;
+    }
+    .image{
+      max-width: 100%;
+    }
+  }

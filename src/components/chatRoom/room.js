@@ -15,7 +15,7 @@ export const Room = () => {
     const fetchProfile = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/profile/${userId}/profile/${userId}`
+          `https://efootball-api.onrender.com/profile/${userId}/profile/${userId}`
         );
        
      
@@ -33,7 +33,7 @@ export const Room = () => {
 
 
   useEffect(() => {
-    const newSocket = socketIOClient("http://localhost:3001");
+    const newSocket = socketIOClient("https://efootball-api.onrender.com");
     setSocket(newSocket);
 
     return () => {

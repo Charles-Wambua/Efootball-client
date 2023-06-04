@@ -1,0 +1,44 @@
+/* .fixturess{
+   
+} */
+
+.fixtures-headingg{
+    color: #b808a6;
+}
+.round{
+    background-color: #b06ba9;
+}
+.round h3{
+    color: #d5d508;
+    font: bold;
+    font-size: 28px;
+}
+.match{
+    font-size: 16px;
+   
+    padding: 20px;
+}
+.match .vs {
+    font-weight: bold;
+    color: rgb(14, 1, 12);
+    font-size: 28px;
+  }
+  .match .homePlayer {
+    background-color: rgb(126, 126, 195);
+    color: rgb(20, 2, 2);
+    padding: 5px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 5px;
+  }
+  
+  .match .awayPlayer {
+    font-weight: bold;
+    
+    background-color: rgb(126, 126, 195);
+    color: rgb(20, 2, 2);
+    padding: 5px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 5px;
+  }

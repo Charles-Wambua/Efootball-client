@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     z-index: 997; 
-    
+    background-color: #0610dc;
     border-collapse: collapse;
     margin-bottom: 20px;
   }
@@ -24,8 +24,28 @@
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #ddd;
-  }
   
+  }
+  .columnn{
+    flex: 3;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    justify-content: end;
+  }
+  .top-season{
+    color: #0610dc;
+    background-color: #eddb14;
+    padding: 10px;
+    line-height: 2;
+  }
+  .top-season h3{
+    color: rgb(227, 13, 13);
+    font:bold;
+    text-decoration: dashed;
+    
+  }
   .column:first-child {
     flex: 0.5;
     text-align: center;

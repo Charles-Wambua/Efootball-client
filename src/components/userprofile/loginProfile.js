@@ -15,25 +15,19 @@ export const Login = () => {
     setError("");
 
     try {
-      // Make a POST request to the login API endpoint
-      const response = await axios.post("http://localhost:3001/login/login", {
+      const response = await axios.post("https://efootball-api.onrender.com/login/login", {
         username,
         number,
       });
       const userId = response.data.userId;
-
-      // Assuming the server response includes the user ID and a token
       const { token } = response.data;
       
       alert("success")
-      navigate("/home")
-
-      // Store the user ID and token in localStorage
+     
       localStorage.setItem("userId", userId);
       localStorage.setItem("token", token);
-
-      // Handle success or redirect to another page
     } catch (error) {
+      navigate("/home")
       setLoading(false);
       setError("Invalid username or password");
     }
@@ -41,6 +35,11 @@ export const Login = () => {
 
   return (
     <div className="login">
+     <div className="sign-up">
+        Sign In/Sign Up to Continue <br />
+        To Efootball <br />
+        For help reach out the Admin!<br/><span className="span">Charles<sup>CK</sup></span> 
+     </div>
       <div className="login-form">
         <h2>Login</h2>
         <input
@@ -48,12 +47,14 @@ export const Login = () => {
           placeholder="Username"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
+          required
         />
         <input
           type="number"
           placeholder="phone-number"
           value={number}
           onChange={(event) => setNumber(event.target.value)}
+          required
         />
         {error && <div className="error">{error}</div>}
         <button onClick={handleLogin} disabled={loading}>
@@ -61,6 +62,9 @@ export const Login = () => {
         
         </button><br />
       <h5>Not registered? <Link to="/user-profile">Register</Link> </h5>
+      </div>
+      <div className="image">
+        <img src="/pic.jpg" alt=""/>
       </div>
     </div>
   );

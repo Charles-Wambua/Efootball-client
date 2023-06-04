@@ -14,7 +14,7 @@ export const DisplayUserProfile = () => {
     const fetchProfile = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/profile/${userId}/profile/${userId}`
+          `https://efootball-api.onrender.com/profile/${userId}/profile/${userId}`
         );
         setProfile(response.data);
         setLoading(false);

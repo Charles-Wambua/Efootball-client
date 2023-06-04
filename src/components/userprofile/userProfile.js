@@ -30,7 +30,7 @@ export const UserProfile = () => {
       formData.append("number", number);
 
       const response = await axios.post(
-        "http://localhost:3001/addProfile/addProfile",
+        "https://efootball-api.onrender.com/addProfile/addProfile",
         formData
       );
 
@@ -58,7 +58,10 @@ export const UserProfile = () => {
 
   return (
     <div className="profile-profile">
-     
+      <div className="profilr">
+        <h2>Create An Account</h2>
+      To Register, input your own phone number, a profile picture and your Username
+     </div>
         <div className="register-form">
            <div className="profile-photoo">
             <input
@@ -97,6 +100,7 @@ export const UserProfile = () => {
           {loading ? "Please wait..." : "Register"} 
         
         </button>
+      <h5>  You already have an account? <a href="/login">Login</a></h5>
         </div>
      
     </div>

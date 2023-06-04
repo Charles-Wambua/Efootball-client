@@ -12,15 +12,17 @@ const FixtureGenerator = () => {
 
   const fetchPlayers = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/profiles/profiles');
-      const playersData = response.data;
+      const response = await axios.get('https://efootball-api.onrender.com/get-registeredPlayers/get-registeredPlayers');
+      const playersData = response.data.registeredPlayers.map((player) => player.username);
       setPlayers(playersData);
+      console.log(playersData);
     } catch (error) {
       console.log(error);
     }
   };
+  
 
-  const generateFixtures = () => {
+  const generateFixtures = async () => {
     const numPlayers = players.length;
     const numRounds = numPlayers - 1;
     const matchesPerRound = numPlayers / 2;
@@ -40,16 +42,26 @@ const FixtureGenerator = () => {
 
         // Check if homePlayer and awayPlayer are the same
         if (homePlayer !== awayPlayer) {
-          roundMatches.push({ homePlayer, awayPlayer });
+          roundMatches.push({ homePlayer: homePlayer, awayPlayer: awayPlayer });
         }
       }
 
-      roundFixtures.push(roundMatches);
+      roundFixtures.push({ matches: roundMatches });
 
       playerIndices.splice(1, 0, playerIndices.pop());
     }
 
     setFixtures(roundFixtures);
+    sendFixturesToServer(roundFixtures); // Send fixtures data to the server
+  };
+
+  const sendFixturesToServer = async (fixturesData) => {
+    try {
+      await axios.post('https://efootball-api.onrender.com/postFixtures/postFixtures', fixturesData);
+      console.log('Fixtures stored in the database.');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -58,7 +70,7 @@ const FixtureGenerator = () => {
         Generate Fixtures
       </button>
 
-      {fixtures.length > 0 && (
+      {/* {fixtures.length > 0 && (
         <div>
           <h2 className="fixtures-heading">Fixtures:</h2>
           {fixtures.map((round, index) => (
@@ -66,13 +78,13 @@ const FixtureGenerator = () => {
               <h3>Round {index + 1}</h3>
               {round.map((match, matchIndex) => (
                 <p className="match" key={matchIndex}>
-                  {match.homePlayer.userName} vs {match.awayPlayer.userName}
+                  {match.homePlayer} vs {match.awayPlayer}
                 </p>
               ))}
             </div>
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };

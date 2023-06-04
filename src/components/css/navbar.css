@@ -15,6 +15,9 @@
 
 .navbar .links {
   display: flex;
+  font-family:monospace;
+  font-size: larger;
+  font: bold;
 }
 
 .navbar .links a {
@@ -26,6 +29,8 @@
 
 .navbar .links a:hover {
   background-color: #cbce13;
+  padding: 10px;
+  margin: 0;
 }
 
 .block {

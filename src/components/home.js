@@ -11,7 +11,7 @@ export const Home = () => {
     
     <div className="home">
       <div className="homepage">
-        <h2>Welcome fam!</h2>
+        <h2>Welcome Dear Gamer!</h2>
         <h4>To the best eFootball™ gaming website!</h4>
         <h5>Our main aim is to keep you entertained and happy, for life😁</h5>
         <h5>

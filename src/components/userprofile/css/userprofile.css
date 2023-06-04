@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-   
+    
     margin-right: 2cm;
     position: relative;
     top: 250px; /* Adjust the value as needed based on the banner's height */
@@ -25,13 +25,26 @@
     color: #f00;
     margin-bottom: 10px;
   }
+  .profilr{
+    text-align: center;
+    line-height: 2;
+    font-size: large;
+    font: bold;
+    margin-bottom: 2cm;
+    color: #fff;
+    padding: 10px;
+
+  }
+  .profilr h2{
+    color: rgb(234, 30, 193);
+  }
   
   .register-form{
     max-width: 400px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: #2f6fdf;
   }
   .profile-profile input{
     width: 100%;
@@ -42,7 +55,7 @@
   }
   .profile-profile{
     position: relative;
-
+    background-color: rgb(12, 41, 232);
     display: flex;
     flex-direction: column;
     justify-content: center;

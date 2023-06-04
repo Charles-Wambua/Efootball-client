@@ -2,14 +2,33 @@
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
+    
     position: relative;
     top: 250px; 
     left: 0;
     width: 100%;
     z-index: 997;
+    
   }
-
-  
+  .a{
+display: flex;
+flex-direction: column;
+  }
+.form-inp{
+  background-color: #3468ad;
+  padding: 30px;
+}
+  .reg{
+    position: relative;
+    top: 270px;
+    line-height: 2;
+    background-color: #ddec05;
+    color: #050bc4;
+    
+    size: 100%;
+    
+    
+  }
   .register-title {
     text-align: center;
     margin-bottom: 20px;
@@ -17,6 +36,7 @@
   
   .form-field {
     margin-bottom: 15px;
+   
   }
   
   label {
@@ -55,12 +75,18 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+  .form-inp{
+    padding: 10px;
+  }
   .register-button {
     display: block;
     width: 90%;
     padding: 10px;
     margin-left: 20px;
     
+  }
+  .reg{
+    padding: 1%;
   }
 }
 

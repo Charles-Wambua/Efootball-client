@@ -1,0 +1,37 @@
+.about{
+    position: relative;
+    top: 260px;
+    line-height: 35px;
+}
+.about h2{
+    color: #e80dec;
+    text-decoration: wavy;
+    text-shadow: #0514e4;
+}
+.image{
+    max-width: 100%;
+}
+.rules{
+    text-align: left;
+    padding: 1cm;
+    flex-wrap: wrap;
+    background-color: #e3f20f;
+    color: #0514e4;
+}
+.span{
+    color: #ec0de8;
+}
+.platform{
+    padding: 1cm;
+    text-align: left;
+    flex-wrap: wrap;
+    align-items: left;
+}
+@media (max-width: 768px) {
+    .platform{
+        padding: 2px;
+    }
+    .rules{
+        padding: 2px;
+    }
+}

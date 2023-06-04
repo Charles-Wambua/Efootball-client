@@ -17,6 +17,8 @@
     overflow-x: auto;
     white-space: nowrap;
     z-index: 997;
+    font: bold;
+    font-family:monospace;
 }
 .links a{
     text-decoration: none;
@@ -49,21 +51,25 @@
   padding: 10px;
   color: blue;
   line-height: 2;
+ 
   }
   .tournament-info a{
     color: #f50d47;
   }
   @media screen and (max-width: 768px) {
     .tournaments {
+      margin-left: 0%;
         margin-top: 1%;
         padding: 1%;
         justify-content: space-between;
       }
       .tournament-info{
         padding: 2%;
+        margin-left: 0%;
       }
     .tournaments .links {
-      flex-wrap: nowrap; /* Prevent wrapping of links on smaller screens */
+      flex-wrap: nowrap;
+      margin-left: 0%; /* Prevent wrapping of links on smaller screens */
     }
   }
   

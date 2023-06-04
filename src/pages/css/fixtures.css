@@ -4,6 +4,22 @@
     left: 0;
     width: 100%;
     z-index: 997; 
+    display: flex;
+    flex-direction: column;
+}
+.fix p{
+  color: blue;
+  background-color: yellow;
+}
+.fix h3{
+  background-color: red;
+  color: white;
+}
+.span{
+  color: black;
+  font: bold;
+  font-weight: 5000;
+  font-style: italic;
 }
 .UploadResult {
     display: flex;
