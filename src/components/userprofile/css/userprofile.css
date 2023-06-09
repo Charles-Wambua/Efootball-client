@@ -38,7 +38,9 @@
   .profilr h2{
     color: rgb(234, 30, 193);
   }
-  
+  .profile-profile .image{
+    max-width: 20%;
+  }
   .register-form{
     max-width: 400px;
     padding: 20px;
@@ -86,4 +88,8 @@
     font-size: 12px; /* Adjust the font size */
     color: gray;
   }
-  
+  @media screen and (max-width: 768px) {
+    .profile-profile .image{
+      max-width: 100%;
+    }
+  }

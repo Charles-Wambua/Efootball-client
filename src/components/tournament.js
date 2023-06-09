@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 export const Tounaments = () => {
   return (
     <div className="tournaments">
-      <h3>EFOOTBALL CHAMPIONSHIPS PRO</h3>
+      <h3>LEAGUE STARTING ON 12TH JUNE</h3>
       <div>
         <div className="links">
           <Link to="/table">Table</Link>
           <Link to="/fixtures">Fixtures</Link>
           <Link to="/register-league">Register League</Link>
-          <Link to="/register-tournament">Register Tournament</Link>
+          {/* <Link to="/register-tournament">Register Tournament</Link> */}
           <Link to="/about">About</Link>
           <Link to="/calender">Calender</Link>
         </div>

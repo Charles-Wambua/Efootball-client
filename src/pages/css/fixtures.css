@@ -7,9 +7,9 @@
     display: flex;
     flex-direction: column;
 }
-.fix p{
-  color: blue;
-  background-color: yellow;
+/*  */
+.fix .rules{
+  line-height: 2;
 }
 .fix h3{
   background-color: red;
@@ -40,6 +40,9 @@
     padding: 10px 20px;
 
   }
+  .fuck{
+    margin-top: 0px;
+  }
   
   .UploadResult button {
     background-color: #4caf50;
@@ -55,6 +58,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2px;
   }
   
   .image img {

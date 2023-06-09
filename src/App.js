@@ -21,15 +21,15 @@ import { Login } from "./components/userprofile/loginProfile";
 
 function App() {
   const token = localStorage.getItem("token");
+  const isAdmin = localStorage.getItem("isAdmin");
 
   return (
     <Router>
       {!token ? (
         <Routes>
           <Route path="/login" element={<Login />} />
-          {<Route path="/user-profile" element={<UserProfile />} />}
-          {!token &&<Route path="/*" element={<Navigate to="/login" />} />}
-          
+          <Route path="/user-profile" element={<UserProfile />} />
+          <Route path="/*" element={<Navigate to="/login" />} />
         </Routes>
       ) : (
         <div className="App">
@@ -40,11 +40,14 @@ function App() {
             <Route path="/signin" element={<Register />} />
             <Route path="/about" element={<About />} />
             <Route path="/active-players" element={<Players />} />
-            <Route path="/admin-page" element={<Admin />} />
+            {isAdmin === "true" ? (
+              <Route path="/admin-page" element={<Admin />} />
+            ) : (
+              <Route path="/admin-page" element={<Navigate to="/home" />} />
+            )}
             <Route path="/tournaments" element={<Tounaments />} />
             <Route path="/fixtures" element={<Fixtures />} />
             <Route path="/table" element={<EplTable />} />
-            
             <Route path="/display-profile" element={<DisplayUserProfile />} />
             <Route path="/register-tournament" element={<RegisterTournament />} />
             <Route path="/register-league" element={<RegisterLeague />} />

@@ -2,48 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/fixtures.css";
 import FixturesDisplay from "./fixturesDisplay";
-import FixtureGenerator from "./generateFixtures";
 
 export const Fixtures = () => {
-  const [image, setImage] = useState(null);
   const [player, setPlayer] = useState("");
   const [opponent, setOpponent] = useState("");
   const [playerScore, setPlayerScore] = useState(0);
   const [opponentScore, setOpponentScore] = useState(0);
   const [fixtures, setFixtures] = useState([]);
-
-  const handleSubmit = async () => {
-    try {
-      const formData = new FormData();
-      formData.append("image", image);
-      formData.append("player", player);
-      formData.append("opponent", opponent);
-      formData.append("playerScore", playerScore);
-      formData.append("opponentScore", opponentScore);
-
-      await axios.post("https://efootball-api.onrender.com/results/results", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-
-      alert("Results uploaded, processing starts");
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
-  const handleImageChange = (event) => {
-    setImage(event.target.files[0]);
-  };
-
-  const handlePlayerScoreChange = (event) => {
-    setPlayerScore(Number(event.target.value));
-  };
-
-  const handleOpponentScoreChange = (event) => {
-    setOpponentScore(Number(event.target.value));
-  };
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -51,12 +16,11 @@ export const Fixtures = () => {
     const fetchProfile = async () => {
       try {
         const response = await axios.get(
-          // `http://localhost:3001/profile/${userId}/profile/${userId}`
           `https://efootball-api.onrender.com/profile/${userId}/profile/${userId}`
         );
 
         setPlayer(response.data.userName);
-        // console.log(player)
+        console.log(player);
       } catch (error) {
         console.log(error);
       }
@@ -65,12 +29,31 @@ export const Fixtures = () => {
     const fetchFixtures = async () => {
       try {
         const response = await axios.get(
-          // "http://localhost:3001/getFixtures/getFixtures"
-          "https://efootball-api.onrender.com/getFixtures/getFixtures"
+          "https://efootball-api.onrender.com/fixtures/getFixtures"
+        );
+        const fixturesData = response.data.fixtures;
+
+        // Find opponents from the fixtures
+        const opponents = fixturesData.flatMap((round) =>
+          round.matches.flatMap((match) => [match.homePlayer, match.awayPlayer])
         );
 
-        setFixtures(response.data.fixtures);
-      //  console.log(fixtures) 
+        // Remove duplicates and the current player
+        const uniqueOpponents = [...new Set(opponents)].filter(
+          (opponent) => opponent !== player
+        );
+
+        // Set the initial opponent as the first opponent in the list
+        if (uniqueOpponents.length > 0) {
+          const currentOpponentIndex = uniqueOpponents.indexOf(opponent);
+          const nextOpponentIndex =
+            currentOpponentIndex >= 0 ? currentOpponentIndex + 1 : 0;
+          const nextOpponent =
+            uniqueOpponents[nextOpponentIndex % uniqueOpponents.length];
+          setOpponent(nextOpponent);
+        }
+
+        setFixtures(fixturesData);
       } catch (error) {
         console.log(error);
       }
@@ -82,99 +65,47 @@ export const Fixtures = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (player && fixtures.length > 0) {
-      const currentPlayer = fixtures.find((round) =>
-        round.matches.some(
-          (match) =>
-            match.homePlayer === player || match.awayPlayer === player
-        )
-      );
-      // console.log(currentPlayer)
-
-      if (currentPlayer) {
-        const opponentMatch = currentPlayer.matches.find(
-          (match) =>
-            match.homePlayer === player || match.awayPlayer === player
-        );
-// console.log(opponentMatch)
-        const opponent =
-          opponentMatch.homePlayer === player
-            ? opponentMatch.awayPlayer
-            : opponentMatch.homePlayer;
-
-        setOpponent(opponent);
-        // console.log(opponent)
-      } else {
-        console.log("Player not found in fixtures");
-      }
-    }
-  }, [player, fixtures]);
-
   return (
     <div className="fixtures">
       <div>
         <div className="fix">
-          <h2>Upload Results</h2>
-          <p>Strickly do not skip matches!</p>
-          <p>In circumstances where you ought to skip matches, only the player whose next fixtures name matches yourname on the input shall post the score</p>
-          <p>Players and opponents spaces fill automatically</p>
-          <p>Remember to upload the creenshot with the results </p>
-          <h3>Ensure you play a minimum of <span className="span">TWO</span> games a day to remain in league ⚠</h3>
-          <div>
-            <label htmlFor="player">Player:</label>
-            <input
-              type="text"
-              name="player"
-              placeholder="Finding your team name..."
-              value={player}
-              onChange={(event) => setPlayer(event.target.value)}
-              readOnly
-            />
+          <div className="rules">
+            <h2>Rules and Penalties</h2>
+            <p>
+              <li>
+                All games should be played on time, failure to that a win and 2
+                goals are awarded to the available opponent
+              </li>
+              <li>
+                False score inputs other than the score in the screenshot will
+                lead to <span className="span">Discontinuation</span>
+              </li>
+              <li>
+                Each game is 12 minutes, no extra time or penalties for league
+              </li>
+              <li>
+                For knockouts, penalties and extra time is allowed, after 12
+                minutes of game
+              </li>
+              <li>
+                Your <span className="span">UserName</span> and{" "}
+                <span className="span">Team Name </span> should be similar for
+                easier management
+              </li>
+            </p>
+            <p>Strickly do not skip matches!</p>
+            <p>
+              In circumstances where you ought to skip matches, only the player
+              whose next fixtures name matches your name on the input shall post
+              the score
+            </p>
+            <p>Players and opponents spaces fill automatically</p>
+            <p>Remember to upload the screenshot with the results </p>
+            <h3>
+              Ensure you play a minimum of <span className="span">TWO</span>{" "}
+              games a day to remain in the league ⚠
+            </h3>
           </div>
-          <div>
-            <label htmlFor="opponent">Opponent:</label>
-            <input
-              type="text"
-              name="opponent"
-              placeholder="Finding your opponent...."
-              value={opponent}
-              required
-              readOnly
-            />
-          </div>
-          <div>
-            
-            <label htmlFor="playerScore">Player Score:</label>
-            <input
-              type="number"
-              name="playerScore"
-              value={playerScore}
-              onChange={handlePlayerScoreChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="opponentScore">Opponent Score:</label>
-            <input
-              type="number"
-              name="opponentScore"
-              value={opponentScore}
-              onChange={handleOpponentScoreChange}
-              required
-            />
-          </div>
-        </div>
-        <div className="UploadResult">
-          <label htmlFor="upload">Upload ScreenShot</label>
-          <input
-            type="file"
-            name="upload"
-            accept="image/*"
-            required
-            onChange={handleImageChange}
-          />
-          <button onClick={handleSubmit}>Upload</button>
         </div>
       </div>
       <div className="image">

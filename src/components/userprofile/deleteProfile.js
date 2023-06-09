@@ -8,7 +8,7 @@ export const DeleteProfile = ({ userId, onDelete }) => {
     setLoading(true);
 
     try {
-      await axios.delete(`http://localhost:3001/profile/${userId}`);
+      await axios.delete(`https://efootball-api.onrender.com/profile/${userId}`);
       setLoading(false);
       onDelete(); // Invoke the callback function to notify parent component
     } catch (error) {

@@ -67,4 +67,7 @@
     .image{
       max-width: 100%;
     }
+    .login .image{
+      max-width: 100%;
+    }
   }

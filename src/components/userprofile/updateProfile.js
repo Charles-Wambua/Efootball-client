@@ -19,7 +19,7 @@ export const UpdateProfile = ({ userId }) => {
     formData.append("number", number);
 
     try {
-      await axios.put(`http://localhost:3001/profile/${userId}`, formData);
+      await axios.put(`https://efootball-api.onrender.com/profile/${userId}`, formData);
       setLoading(false);
       // Perform any necessary actions after successful profile update
     } catch (error) {

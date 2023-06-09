@@ -8,38 +8,52 @@ export const Login = () => {
   const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     setLoading(true);
     setError("");
 
     try {
+      if (!username || !number) {
+        throw new Error("Please fill in all the required fields.");
+      }
+
       const response = await axios.post("https://efootball-api.onrender.com/login/login", {
         username,
         number,
       });
+
       const userId = response.data.userId;
       const { token } = response.data;
-      
-      alert("success")
-     
+      const isAdmin = response.data.isAdmin;
+
+      alert("success");
+
       localStorage.setItem("userId", userId);
       localStorage.setItem("token", token);
+      localStorage.setItem("isAdmin", isAdmin ? "true" : "false"); // Convert boolean value to st
+
+      // Redirect to /home and refresh the page
+      navigate("/home");
+      window.location.reload();
     } catch (error) {
-      navigate("/home")
       setLoading(false);
-      setError("Invalid username or password");
+      setError("Invalid username or password.");
+      console.log(error);
     }
+    setUsername("");
+    setNumber("");
   };
+
 
   return (
     <div className="login">
-     <div className="sign-up">
+      <div className="sign-up">
         Sign In/Sign Up to Continue <br />
         To Efootball <br />
-        For help reach out the Admin!<br/><span className="span">Charles<sup>CK</sup></span> 
-     </div>
+        For help, reach out to the Admin!<br/><span className="span">Charles<sup>CK</sup></span> 
+      </div>
       <div className="login-form">
         <h2>Login</h2>
         <input
@@ -58,10 +72,9 @@ export const Login = () => {
         />
         {error && <div className="error">{error}</div>}
         <button onClick={handleLogin} disabled={loading}>
-          {loading ? "Logging in..." : "Login"} 
-        
+          {loading ? "Logging in..." : "Login"}
         </button><br />
-      <h5>Not registered? <Link to="/user-profile">Register</Link> </h5>
+        <h5>Not registered? <Link to="/user-profile">Register</Link> </h5>
       </div>
       <div className="image">
         <img src="/pic.jpg" alt=""/>

@@ -38,7 +38,11 @@ flex-direction: column;
     margin-bottom: 15px;
    
   }
-  
+  .register-container .social-icons{
+    padding: 10%;
+    padding-top: 5px;
+    padding-bottom: 20px;
+  }
   label {
     display: block;
     margin-bottom: 5px;
@@ -61,12 +65,39 @@ flex-direction: column;
     border-radius: 4px;
     cursor: pointer;
   }
-  
+  .error-message{
+    color:red;
+  }
   .registration-status {
     margin-top: 10px;
     text-align: center;
     color: #4caf50;
   }
+  .copy-icon {
+    display: inline-block;
+    padding: 0.2em 0.5em;
+    background-color: #e6e6e6;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .copy-icon:hover {
+    background-color: #342727;
+  }
+  
+  .copy-icon::before {
+     /* content: "\\f0c5";  */
+    font-family: "FontAwesome";
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    margin-right: 0.3em;
+  }
+  
+  .copy-icon:hover::before {
+    color: #000;
+  }
+  
   /* Responsive Styles */
 @media (max-width: 600px) {
   input[type="text"] {

@@ -5,8 +5,6 @@ export const EplTable = () => {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the backend
-    // fetch("http://localhost:3001/get-results/get-results")
     fetch("https://efootball-api.onrender.com/get-results/get-results")
       .then((response) => response.json())
       .then((data) => {
@@ -45,11 +43,11 @@ export const EplTable = () => {
         </div>
         <div className="table-body">
           {tableData
-            .sort((a, b) => a.rank - b.rank) // Sort the tableData array based on the rank
+            .sort((a, b) => a.rank - b.rank)
             .map((team) => (
               <div className="table-row" key={team.position}>
                 <div className="column">{team.rank}</div>
-                <div className="columnn">{team.team}</div>
+                <div className="column">{team.team}</div>
                 <div className="column">{team.played}</div>
                 <div className="column">{team.won}</div>
                 <div className="column">{team.drawn}</div>
